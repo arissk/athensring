@@ -1,0 +1,4 @@
+#Fri Nov 05 16:20:25 EET 2021
+base.0=/Users/arisskouroliakos/ArisFiles/Development/Projects/MobileApps/AthensRing/athensring/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

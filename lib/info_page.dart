@@ -25,7 +25,7 @@ class InfoPage extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                '25/10/21 to 22/07/22\nThe restrictions are enforced every year and are designed to reduce traffic congestion in the city center.',
+                '25/10/21 to 22/07/22\nThe restrictions are not applied on Weekends.\nThe restrictions are enforced every year and are designed to reduce traffic congestion in the city center.',
                 style: TextStyle(fontSize: 18.0),
                 textAlign: TextAlign.left,
               ),
