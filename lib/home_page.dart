@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   DateTime _selectedDate = DateTime.now();
   int intDateNumber = 0;
   int carPlateNumber = 0;
-  String message = 'Can I go downtown!';
+  String message = 'Can I go downtown?';
   bool canGo = false;
 
 //Date Picker Functionality
@@ -28,8 +28,8 @@ class _HomePageState extends State<HomePage> {
       initialDate: DateTime.now(),
       firstDate: DateTime(DateTime.now().year),
       lastDate: DateTime(DateTime.now().year + 1),
-      selectableDayPredicate: (DateTime val) =>
-          val.weekday == 5 || val.weekday == 6 ? false : true,
+      /* selectableDayPredicate: (DateTime val) =>
+         val.weekday == 5 || val.weekday == 6 ? false : true, */
     ).then((pickedDate) {
       if (pickedDate == null) {
         _selectedDate = DateTime.now();
@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
 
   //Checking the data from the date and the vechicle plate number and providing the message needed
   void _checkValidity(int plateNumber, int dateNumber) {
-    if (dateNumber == 0) {
+    if (dateNumber == 0 || intDateNumber == 0) {
       _selectedDate = DateTime.now();
       intDateNumber = int.parse(DateFormat('d').format(_selectedDate));
     }
@@ -57,14 +57,29 @@ class _HomePageState extends State<HomePage> {
       message = 'You can go downtown!';
       canGo = true;
     } else {
-      message = '3No downtown for you!';
+      message = 'No downtown for you!';
       canGo = false;
     }
     //Setting the state for the message in order to change according to the data and get the necessary colors for the message.
     setState(() {
+      _selectedDate;
+      intDateNumber;
       message;
       canGo;
     });
+  }
+
+  @override
+  void initState() {
+    _selectedDate = DateTime.now();
+    intDateNumber = int.parse(DateFormat('d').format(_selectedDate));
+    //Setting the state for the message in order to change according to the data and get the necessary colors for the message.
+    setState(() {
+      _selectedDate;
+      intDateNumber;
+    });
+
+    super.initState();
   }
 
   @override
